@@ -1,0 +1,56 @@
+﻿@{
+    ViewBag.Title = "Home Page";
+}
+
+<div class="jumbotron">
+    <h3>Información del servidor</h3>
+    <div></div>
+    <h2>Prueba</h2>
+    <input type="button" class="btn btn-primary btn-lg" value="Crear nueva carta" onclick="location.href='@Url.Action("Redactar", "Carta")'" />
+</div>
+
+<div class="row">
+    <div class="col-md-12">
+        <h2>Información del servidor</h2>
+        <input type="hidden" id="ipServidor" value="@ViewBag.ipServidorPublica" />
+    </div>
+</div>
+<div class="row">
+    <div class="col-md-6">
+        <h3>Fecha</h3>
+        @ViewBag.fechaServidor
+    </div>
+    <div class="col-md-6">
+        <h3>Hora</h3>
+        @ViewBag.horaServidor
+    </div>
+</div>
+<div class="row">
+    <div class="col-md-6">
+        <h3>IP Privada</h3>
+        @ViewBag.ipServidorPrivada
+    </div>
+    <div class="col-md-6">
+        <h3>IP Publica</h3>
+        @ViewBag.ipServidorPublica
+    </div>
+</div>
+<div class="row">
+    <div class="col-md-4">
+        <h3>Pais</h3>
+        @ViewBag.countryName
+    </div>
+    <div class="col-md-4">
+        <h3>Región</h3>
+        @ViewBag.regionName
+    </div>
+    <div class="col-md-4">
+        <h3>Ciudad</h3>
+        @ViewBag.cityName
+    </div>
+</div>
+
+<script>
+    $(document).ready(function () {
+    });
+</script>

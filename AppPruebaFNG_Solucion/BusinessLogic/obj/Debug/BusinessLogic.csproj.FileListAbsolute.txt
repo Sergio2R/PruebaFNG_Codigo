@@ -1,0 +1,11 @@
+C:\AppPruebaFNG_Solucion\BusinessLogic\bin\Debug\BusinessLogic.dll
+C:\AppPruebaFNG_Solucion\BusinessLogic\bin\Debug\BusinessLogic.pdb
+C:\AppPruebaFNG_Solucion\BusinessLogic\obj\Debug\BusinessLogic.csprojAssemblyReference.cache
+C:\AppPruebaFNG_Solucion\BusinessLogic\obj\Debug\BusinessLogic.csproj.CoreCompileInputs.cache
+C:\AppPruebaFNG_Solucion\BusinessLogic\obj\Debug\BusinessLogic.dll
+C:\AppPruebaFNG_Solucion\BusinessLogic\obj\Debug\BusinessLogic.pdb
+C:\AppPruebaFNG_Solucion\BusinessLogic\bin\Debug\Newtonsoft.Json.dll
+C:\AppPruebaFNG_Solucion\BusinessLogic\bin\Debug\ServiceAccess.dll
+C:\AppPruebaFNG_Solucion\BusinessLogic\bin\Debug\ServiceAccess.pdb
+C:\AppPruebaFNG_Solucion\BusinessLogic\bin\Debug\Newtonsoft.Json.xml
+C:\AppPruebaFNG_Solucion\BusinessLogic\obj\Debug\BusinessLogic.csproj.CopyComplete

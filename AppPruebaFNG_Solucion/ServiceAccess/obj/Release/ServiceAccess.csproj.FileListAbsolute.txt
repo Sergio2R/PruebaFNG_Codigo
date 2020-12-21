@@ -1,0 +1,9 @@
+C:\AppPruebaFNG_Solucion\ServiceAccess\bin\Release\ServiceAccess.dll
+C:\AppPruebaFNG_Solucion\ServiceAccess\bin\Release\ServiceAccess.pdb
+C:\AppPruebaFNG_Solucion\ServiceAccess\bin\Release\Newtonsoft.Json.dll
+C:\AppPruebaFNG_Solucion\ServiceAccess\bin\Release\Newtonsoft.Json.xml
+C:\AppPruebaFNG_Solucion\ServiceAccess\obj\Release\ServiceAccess.csprojAssemblyReference.cache
+C:\AppPruebaFNG_Solucion\ServiceAccess\obj\Release\ServiceAccess.csproj.CoreCompileInputs.cache
+C:\AppPruebaFNG_Solucion\ServiceAccess\obj\Release\ServiceAccess.csproj.CopyComplete
+C:\AppPruebaFNG_Solucion\ServiceAccess\obj\Release\ServiceAccess.dll
+C:\AppPruebaFNG_Solucion\ServiceAccess\obj\Release\ServiceAccess.pdb

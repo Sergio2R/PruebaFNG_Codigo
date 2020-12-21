@@ -1,0 +1,510 @@
+﻿@{
+    ViewBag.Title = "Redactar";
+}
+
+<h2>Redactar Carta</h2>
+
+<form class="form-horizontal">
+    <h3>Membrete</h3>
+    <div class="form-group">
+        <label class="col-sm-2 control-label">Logo (JPG)</label>
+        <div class="col-sm-10">
+            <input type="file" name="logo" id="logo" value="logo" accept="image/x-png,image/gif,image/jpeg" />
+            <img id="logoPreview" src="#" alt="Logo" width="100" height="100" />
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="col-sm-2 control-label">Remitente</label>
+        <div class="col-sm-10">
+            <input type="text" class="form-control" id="empresa" name="empresa">
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="col-sm-2 control-label">Pais</label>
+        <div class="col-sm-10">
+            <select class="form-control" id="pais" name="pais">
+                <option></option>
+            </select>
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="col-sm-2 control-label">Departamento</label>
+        <div class="col-sm-10">
+            <select class="form-control" id="estado" name="estado">
+                <option></option>
+            </select>
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="col-sm-2 control-label">Ciudad/Municipio</label>
+        <div class="col-sm-10">
+            <select class="form-control" id="ciudad" name="ciudad">
+                <option></option>
+            </select>
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="col-sm-2 control-label">Direccion</label>
+        <div class="col-sm-10">
+            <input type="text" class="form-control" id="direccion" name="direccion">
+        </div>
+    </div>
+    <h3>Fecha y hora</h3>
+    <div class="form-group">
+        <label class="col-sm-2 control-label">Fecha (Dia/Mes/año)</label>
+        <div class="col-sm-10">
+            <input type="text" class="form-control" id="fecha" name="fecha">
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="col-sm-2 control-label">Hora (24H)</label>
+        <div class="col-sm-10">
+            <input type="text" class="form-control" id="hora" name="hora">
+        </div>
+    </div>
+    <h3>Saludo</h3>
+    <div class="form-group">
+        <label class="col-sm-2 control-label">Tratamiento</label>
+        <div class="col-sm-10">
+            <select class="form-control" id="tratamiento" name="tratamiento">
+                @foreach (var item in ViewBag.tratamientos)
+                {
+                    <option>@item.Descripcion</option>
+                }
+            </select>
+        </div>
+        <label class="col-sm-2 control-label">Saludo</label>
+        <div class="col-sm-10">
+            <input type="text" class="form-control" id="saludo" name="saludo" value="Respetado señor">
+        </div>
+    </div>
+    <h3>Destinatario</h3>
+    <div class="form-group">
+        <label class="col-sm-2 control-label">Nombres</label>
+        <div class="col-sm-10">
+            <input type="text" class="form-control" id="nombres" name="nombres">
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="col-sm-2 control-label">Apellidos</label>
+        <div class="col-sm-10">
+            <input type="text" class="form-control" id="apellidos" name="apellidos">
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="col-sm-2 control-label">Pais</label>
+        <div class="col-sm-10">
+            <select class="form-control" id="pais2" name="pais2">
+                <option></option>
+            </select>
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="col-sm-2 control-label">Departamento</label>
+        <div class="col-sm-10">
+            <select class="form-control" id="estado2" name="estado2">
+                <option></option>
+            </select>
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="col-sm-2 control-label">Ciudad</label>
+        <div class="col-sm-10">
+            <select class="form-control" id="ciudad2" name="ciudad2">
+                <option></option>
+            </select>
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="col-sm-2 control-label">Direccion</label>
+        <div class="col-sm-10">
+            <input type="text" class="form-control" id="direccion2" name="direccion2">
+        </div>
+    </div>
+    <h3>Cuerpo de la carta</h3>
+    <div class="form-group">
+        <label class="col-sm-2 control-label"></label>
+        <div class="col-sm-10" style="border: 1px solid #ccc">
+            <div class="sample-toolbar">
+                <a href="javascript:void(0)" onclick="format('bold')"><span class="fa fa-bold fa-fw"></span></a>
+                <a href="javascript:void(0)" onclick="format('italic')"><span class="fa fa-italic fa-fw"></span></a>
+                <a href="javascript:void(0)" onclick="format('insertunorderedlist')"><span class="fa fa-list fa-fw"></span></a>
+                <a hidden href="javascript:void(0)" onclick="setUrl()"><span class="fa fa-link fa-fw"></span></a>
+                <span><input id="txtFormatUrl" placeholder="url" class="form-control"></span>
+            </div>
+            <div class="editor" id="sampleeditor" style="border-width: 0px">
+            </div>
+        </div>
+    </div>
+    <h3>Despedida</h3>
+    <div class="form-group">
+        <label class="col-sm-2 control-label"></label>
+        <select class="form-control" id="despedida" name="despedida">
+            @foreach (var item in ViewBag.despedidas)
+            {
+                <option>@item.Descripcion</option>
+            }
+        </select>
+    </div>
+    <h3>Firma</h3>
+    <div class="form-group">
+        <label class="col-sm-2 control-label">Firma (JPG)</label>
+        <input type="file" name="firma" id="firma" value="firma" accept="image/x-png,image/gif,image/jpeg" />
+        <img id="firmaPreview" src="#" alt="Firma" width="150" height="30" />
+    </div>
+    <div class="form-group">
+        <label class="col-sm-2 control-label">Nombres</label>
+        <div class="col-sm-10">
+            <input type="text" class="form-control" id="nombres2" name="nombres2">
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="col-sm-2 control-label">Apellidos</label>
+        <div class="col-sm-10">
+            <input type="text" class="form-control" id="apellidos2" name="apellidos2">
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="col-sm-2 control-label">Cargo</label>
+        <div class="col-sm-10">
+            <select class="form-control" id="cargo" name="cargo">
+                @foreach (var item in ViewBag.cargos)
+                {
+                    <option>@item.Descripcion</option>
+                }
+            </select>
+        </div>
+    </div>
+
+    <div class="form-group">
+        <div class="col-sm-6">
+            <button type="button" class="btn btn-primary btn-lg" onclick="descargarPDF()">Descargar</button>
+        </div>
+        <div class="col-sm-6">
+            <button type="button" class="btn btn-primary btn-lg" onclick="embeberPDF()">Previsualizar (Sin el cuerpo de la carta)</button>
+        </div>
+    </div>
+</form>
+
+<div class="container">
+    <div class="row">
+        <div class="col-lg-12">
+            <div id="pdfContainer"></div>
+        </div>
+    </div>
+</div>
+
+<div class="footer">
+    <p>Información del servidor. Ciudad: @ViewBag.cityName, Fecha: @ViewBag.fechaServidor, Hora: @ViewBag.horaServidor</p>
+</div>
+
+
+
+<style>
+    .pdfobject-container {
+        height: 800px;
+        border: 1rem solid rgba(0,0,0,.1);
+    }
+</style>
+<script src="~/Scripts/GeneratePDF.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/timepicker/1.3.5/jquery.timepicker.min.js"></script>
+
+<script>
+    window.addEventListener('load', function () {
+        document.getElementById('sampleeditor').setAttribute('contenteditable', 'true');
+    });
+
+    function format(command, value) {
+        document.execCommand(command, false, value);
+    }
+
+    function setUrl() {
+        var url = document.getElementById('txtFormatUrl').value;
+        var sText = document.getSelection();
+        document.execCommand('insertHTML', false, '<a href="' + url + '" target="_blank">' + sText + '</a>');
+        document.getElementById('txtFormatUrl').value = '';
+    }
+</script>
+
+
+<script>
+    $.datepicker.regional['es'] = {
+        closeText: 'Cerrar',
+        prevText: '< Ant',
+        nextText: 'Sig >',
+        currentText: 'Hoy',
+        monthNames: ['Enero', 'Febrero', 'Marzo', 'Abril', 'Mayo', 'Junio', 'Julio', 'Agosto', 'Septiembre', 'Octubre', 'Noviembre', 'Diciembre'],
+        monthNamesShort: ['Ene', 'Feb', 'Mar', 'Abr', 'May', 'Jun', 'Jul', 'Ago', 'Sep', 'Oct', 'Nov', 'Dic'],
+        dayNames: ['Domingo', 'Lunes', 'Martes', 'Miércoles', 'Jueves', 'Viernes', 'Sábado'],
+        dayNamesShort: ['Dom', 'Lun', 'Mar', 'Mié', 'Juv', 'Vie', 'Sáb'],
+        dayNamesMin: ['Do', 'Lu', 'Ma', 'Mi', 'Ju', 'Vi', 'Sá'],
+        weekHeader: 'Sm',
+        dateFormat: 'dd/mm/yy',
+        firstDay: 1,
+        isRTL: false,
+        showMonthAfterYear: false,
+        yearSuffix: ''
+    };
+    $.datepicker.setDefaults($.datepicker.regional['es']);
+</script>
+
+
+<script>
+    //wait
+    /**
+     */
+    function showPleaseWait() {
+        if (document.querySelector("#pleaseWaitDialog") == null) {
+            var modalLoading = '<div class="modal" id="pleaseWaitDialog" data-backdrop="static" data-keyboard="false" role="dialog">\
+                    <div class="modal-dialog">\
+                        <div class="modal-content">\
+                            <div class="modal-header">\
+                                <h4 class="modal-title">Cargando...</h4>\
+                            </div>\
+                            <div class="modal-body">\
+                                <div class="progress">\
+                                  <div class="progress-bar progress-bar-success progress-bar-striped active" role="progressbar"\
+                                  aria-valuenow="100" aria-valuemin="0" aria-valuemax="100" style="width:100%; height: 40px">\
+                                  </div>\
+                                </div>\
+                            </div>\
+                        </div>\
+                    </div>\
+                </div>';
+            $(document.body).append(modalLoading);
+        }
+
+        $("#pleaseWaitDialog").modal("show");
+    }
+
+    /**
+     * Hides "Please wait" overlay. See function showPleaseWait().
+     */
+    function hidePleaseWait() {
+        $("#pleaseWaitDialog").modal("hide");
+    }
+</script>
+
+<script>
+    var countries = null;
+    var states = null;
+    var cities = null;
+    var logoUrl = null;
+    var firmaUrl = null;
+    $(document).ready(function () {
+
+
+        //img
+        function readLogoURL(input) {
+            if (input.files && input.files[0]) {
+                var reader = new FileReader();
+
+                reader.onload = function (e) {
+                    $('#logoPreview').attr('src', e.target.result);
+                    logoUrl = e.target.result;
+                }
+
+                reader.readAsDataURL(input.files[0]);
+            }
+        }
+        $("#logo").change(function () {
+            readLogoURL(this);
+        });
+
+        function readFirmaURL(input) {
+            if (input.files && input.files[0]) {
+                var reader = new FileReader();
+
+                reader.onload = function (e) {
+                    $('#firmaPreview').attr('src', e.target.result);
+                }
+                reader.readAsDataURL(input.files[0]);
+            }
+        }
+        $("#firma").change(function () {
+            readFirmaURL(this);
+        });
+        //img
+
+        $("#fecha").datepicker({ dateFormat: 'dd/mm/yy' }).datepicker("setDate", new Date());
+        $('#hora').timepicker({
+            timeFormat: 'HH:mm',
+            interval: 60,
+            defaultTime: "now",
+            dynamic: true,
+            dropdown: true,
+            scrollbar: true
+        });
+        getAllCountries();
+
+        $('#pais').on('change', function () {
+            $("#estado").empty();
+            $("#estado").append(new Option("", ""));
+            $("#ciudad").empty();
+            $("#ciudad").append(new Option("", ""));
+            ciso = this.value;
+            getStatesFromCountry(ciso);
+        });
+        $('#estado').on('change', function () {
+            siso = this.value;
+            getCitiesByStateCountry();
+        });
+
+        $('#pais2').on('change', function () {
+            $("#estado2").empty();
+            $("#estado2").append(new Option("", ""));
+            $("#ciudad2").empty();
+            $("#ciudad2").append(new Option("", ""));
+            ciso = this.value;
+            getStatesFromCountry2(ciso);
+        });
+        $('#estado2').on('change', function () {
+            siso = this.value;
+            getCitiesByStateCountry2();
+        });
+    });
+
+    function getAllCountries() {
+        showPleaseWait();
+        var proxyurl = "https://cors-anywhere.herokuapp.com/";
+        var ApiKey = "N3R3M0NEVFdXTHpUWjcyWm9CTGdTNzJEdjFXdDVqYlFJRDVnZFlpcg==";
+        var requestUrl = "https://api.countrystatecity.in/v1/countries";
+        $.ajax({
+            headers: { "accept": "application/json", "X-CSCAPI-KEY": ApiKey },
+            beforeSend: function (xhr) {
+                xhr.withCredentials = true;
+            },
+            url: proxyurl + requestUrl,
+            data: {},
+            type: "GET",
+            success: function (result) {
+                countries = result;
+                fillCountriesInfo();
+                hidePleaseWait();
+            }
+        });
+    }
+    function fillCountriesInfo() {
+        for (var i = 0; i < countries.length; i++) {
+            $("#pais").append(new Option(countries[i].name, countries[i].iso2));
+            $("#pais2").append(new Option(countries[i].name, countries[i].iso2));
+        }
+    }
+    function getStatesFromCountry(ciso) {
+        showPleaseWait();
+        var proxyurl = "https://cors-anywhere.herokuapp.com/";
+        var ApiKey = "N3R3M0NEVFdXTHpUWjcyWm9CTGdTNzJEdjFXdDVqYlFJRDVnZFlpcg==";
+        var requestUrl = "https://api.countrystatecity.in/v1/countries/";
+        requestUrl += ciso + "/states";
+        $.ajax({
+            headers: { "accept": "application/json", "X-CSCAPI-KEY": ApiKey },
+            beforeSend: function (xhr) {
+                xhr.withCredentials = true;
+            },
+            url: proxyurl + requestUrl,
+            data: {},
+            type: "GET",
+            success: function (result) {
+                states = result;
+                fillStatesInfo();
+                hidePleaseWait();
+            }
+        });
+    }
+    function fillStatesInfo() {
+        $("#estado").empty();
+        $("#estado").append(new Option("", ""));
+        for (var i = 0; i < states.length; i++) {
+            $("#estado").append(new Option(states[i].name, states[i].iso2));
+        }
+    }
+    function getCitiesByStateCountry() {
+        showPleaseWait();
+        var proxyurl = "https://cors-anywhere.herokuapp.com/";
+        var ApiKey = "N3R3M0NEVFdXTHpUWjcyWm9CTGdTNzJEdjFXdDVqYlFJRDVnZFlpcg==";
+        var requestUrl = "https://api.countrystatecity.in/v1/countries/";
+        var ciso = $("#pais").val();
+        var siso = $("#estado").val();
+        requestUrl += ciso + "/states/" + siso + "/cities";
+        $.ajax({
+            headers: { "accept": "application/json", "X-CSCAPI-KEY": ApiKey },
+            beforeSend: function (xhr) {
+                xhr.withCredentials = true;
+            },
+            url: proxyurl + requestUrl,
+            data: {},
+            type: "GET",
+            success: function (result) {
+                cities = result;
+                fillCitiesInfo();
+                hidePleaseWait();
+            }
+        });
+    }
+    function fillCitiesInfo() {
+        $("#ciudad").empty();
+        $("#ciudad").append(new Option("", ""));
+        for (var i = 0; i < cities.length; i++) {
+            $("#ciudad").append(new Option(cities[i].name, cities[i].id));
+        }
+    }
+    function getStatesFromCountry2(ciso) {
+        showPleaseWait();
+        var proxyurl = "https://cors-anywhere.herokuapp.com/";
+        var ApiKey = "N3R3M0NEVFdXTHpUWjcyWm9CTGdTNzJEdjFXdDVqYlFJRDVnZFlpcg==";
+        var requestUrl = "https://api.countrystatecity.in/v1/countries/";
+        requestUrl += ciso + "/states";
+        $.ajax({
+            headers: { "accept": "application/json", "X-CSCAPI-KEY": ApiKey },
+            beforeSend: function (xhr) {
+                xhr.withCredentials = true;
+            },
+            url: proxyurl + requestUrl,
+            data: {},
+            type: "GET",
+            success: function (result) {
+                states = result;
+                fillStatesInfo2();
+                hidePleaseWait();
+            }
+        });
+    }
+    function fillStatesInfo2() {
+        $("#estado2").empty();
+        $("#estado2").append(new Option("", ""));
+        for (var i = 0; i < states.length; i++) {
+            $("#estado2").append(new Option(states[i].name, states[i].iso2));
+        }
+    }
+    function getCitiesByStateCountry2() {
+        showPleaseWait();
+        var proxyurl = "https://cors-anywhere.herokuapp.com/";
+        var ApiKey = "N3R3M0NEVFdXTHpUWjcyWm9CTGdTNzJEdjFXdDVqYlFJRDVnZFlpcg==";
+        var requestUrl = "https://api.countrystatecity.in/v1/countries/";
+        var ciso = $("#pais2").val();
+        var siso = $("#estado2").val();
+        requestUrl += ciso + "/states/" + siso + "/cities";
+        $.ajax({
+            headers: { "accept": "application/json", "X-CSCAPI-KEY": ApiKey },
+            beforeSend: function (xhr) {
+                xhr.withCredentials = true;
+            },
+            url: proxyurl + requestUrl,
+            data: {},
+            type: "GET",
+            success: function (result) {
+                cities = result;
+                fillCitiesInfo2();
+                hidePleaseWait();
+            }
+        });
+    }
+    function fillCitiesInfo2() {
+        $("#ciudad2").empty();
+        $("#ciudad2").append(new Option("", ""));
+        for (var i = 0; i < cities.length; i++) {
+            $("#ciudad2").append(new Option(cities[i].name, cities[i].id));
+        }
+    }
+</script>
+
